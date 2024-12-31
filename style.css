@@ -7,3 +7,25 @@
 img {
     width: 100%;
 }
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    background-color:rgb(79, 58, 37);
+}
+.startscreen {
+    display: none;
+}
+p {
+    font-size: 14px;
+}
+.letter {
+    display: flex;
+    width: 600px;
+    margin: auto;
+    background-color: antiquewhite;
+    height: 790px;
+}
+.letter > p {
+    margin:  70px 50px 0 70px;
+}
