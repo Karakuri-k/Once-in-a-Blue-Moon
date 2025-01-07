@@ -11,13 +11,22 @@ body{
     height: 100vh;
     display: flex;
     justify-content: center;
-    background-color:rgb(79, 58, 37);
+
+    background-color:rgb(120, 70, 38);
+    background-image: url(bilder/interviewCharlie.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .startscreen {
     display: none;
 }
 p {
     font-size: 14px;
+}
+.desk {
+    display: none;
+    justify-content: center;
+    align-items: center;
 }
 .letter {
     display: flex;
@@ -28,4 +37,30 @@ p {
 }
 .letter > p {
     margin:  70px 50px 0 70px;
+}
+.next {
+    position: absolute;
+    left: 1200px;
+    top: 80%;
+}
+.ward {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+
+}
+.dialogueBox {
+    position: relative;
+    grid-column: 3/11;
+    grid-row: 9/12;
+    display: flex;
+    background-color: antiquewhite;
+    gap: 30px;
+    flex-direction: column; 
+    justify-content: center;
+    padding: 20px;
+}
+.dialogueBox > h1 {
+    position: absolute;
+    top: 20px;
 }
