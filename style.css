@@ -101,8 +101,8 @@ p {
     display: none;
     justify-content: center;
     align-items: center;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12, 1fr);
     justify-content: center;
     align-items: center;
 }
@@ -119,19 +119,22 @@ p {
     margin:  70px 50px 0 70px;
     font-size: 16px;
 }
-#ward {
-    display: none;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    justify-content: center;
-    align-items: center;
-}
 #wardbutton {
     grid-column: 11/12;
    grid-row: 11/12;
    height: 60px;
    width: 60px;
    margin-left: 20px;
+}
+#ward {
+    display: none;
+    grid-template-columns: repeat(12, 1fr); /* Fixed grid layout */
+    grid-template-rows: repeat(12, 1fr);
+    gap: 10px;
+    align-items: center;
+    justify-items: center;
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
 }
 .next {
    grid-column: 11/12;
@@ -148,10 +151,22 @@ p {
     gap: 10px;
     background-color: antiquewhite;
     flex-direction: column; 
-    justify-content: center;
+    justify-content: flex-start;
     padding: 50px;
+    width: 700px; /* Set a consistent fixed width */
+    height: 200px;
+    overflow-y: auto;
+    box-sizing: border-box; /* Ensures padding doesn't affect overall width */
 }
-.yapBox > h2 {
-    position: absolute;
-    top: 30px;
+.yapBox .name h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.yapBox .yap p {
+    font-size: 20px;
+    line-height: 1.5;
+    white-space: normal; /* Allow text to wrap within the box */
+    word-wrap: break-word; /* Break long words to prevent overflow */
+    overflow: hidden; /* Prevent content from spilling out */
 }
