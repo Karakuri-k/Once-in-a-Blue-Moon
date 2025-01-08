@@ -1,83 +1,113 @@
-const startscreen = document.getElementById('startscreen')
-const desk = document.getElementById('desk')
-const wardbutton = document.getElementById('wardbutton')
-const ward = document.getElementById('ward')
+//musica
+const music = document.getElementById("backgroundMusic");
 
-function none() {
-    startscreen.style.display = 'none'
-    console.log("game started")
-    desk.style.display = 'grid'
+document.addEventListener("keydown", (event) => {
+    if (event.key.toLowerCase() === "m") {
+        music.play();
+    }
+});
+
+//neste scene, vi får se om det funker videre og
+function switchScreen(hideId, showId) {
+    const hideElement = document.getElementById(hideId);
+    if (hideElement) hideElement.style.display = 'none';
+
+    const showElement = document.getElementById(showId);
+    if (showElement) showElement.style.display = 'grid';
 }
 
-function toWard() {
-    desk.style.display = 'none'
-    ward.style.display = 'grid'
-}
 
-
-const dialogueParagraph = document.querySelector(".yapBox .yap p"); // Targets the <p> element
+//dialogen, jeg må finne ut av en letter måte å gjøre det her på as
+const dialogueBox = document.querySelector(".yapBox .yap p");
+const nameBox = document.querySelector(".yapBox .name h2");
 const nextButton = document.querySelector(".next");
 
+//hadde også vært gøy med forskjellige fonter til hver av karakterene??
+//kanskje han fulle kan ha random bokstaver som blir caps
+
 const dialogues = [
-    "...",
-  "Ah, Detective Graves. How lucky we are to have you here.",
-  "We’re certainly in a bit of a bind, as you can imagine.",
-  "The whole department’s at a standstill, stretched thin after last week’s murder.",
-  "It’s just dreadful, I tell you.",
-  "But, let me get down to business and introduce you to our four main suspects, the ones you'll want to speak with shortly.",
+    { name: "Sergeant James Ward", text: "Ah, Detective Graves, how fortunate we are to have you here."},
+    { name: "Sergeant James Ward", text: "The department’s stretched thin after last week’s murder—an absolutely dreadful state of affairs."},
+    { name: "Sergeant James Ward", text: "But let me introduce you to the four suspects you’ll want to question."},
+    { name: "Sergeant James Ward", text: "First, there’s Clara Belle, a regular here and known for charming the staff, particularly Frank. "},
+    { name: "Sergeant James Ward", text:  "She’s a flirt, but when Frank rejected her advances a fortnight ago—quite publicly, mind you—it caused a bit of a scene."},
+    { name: "Sergeant James Ward", text: "Still, I don’t imagine she’d dwell on it."},
+    { name: "Sergeant James Ward", text: "She’s likely moved her attentions elsewhere, perhaps to the bartender, which brings us to..."},
+    { name: "Sergeant James Ward", text: "Charlie Finch, the long-standing barman."},
+    { name: "Sergeant James Ward", text: "There’s talk that Frank intended to replace him with someone older and more experienced."},
+    { name: "Sergeant James Ward", text: "I can’t imagine why; Charlie’s cocktails are widely praised, especially his fruit drinks. "},
+    { name: "Sergeant James Ward", text: "Frank, however, had no patience for anything too sweet though he seemed to approve of the idea to shake things up for the club’s anniversary."},
+    { name: "Sergeant James Ward", text: "Ah, Detective Graves, how fortunate we are to have you here."},
+    { name: "Sergeant James Ward", text: "Ah, Detective Graves, how fortunate we are to have you here."},
+    { name: "Sergeant James Ward", text: "Ah, Detective Graves, how fortunate we are to have you here."}
 ];
 
 let currentDialogueIndex = 0;
-let charIndex = 0; // Keeps track of the current character being displayed
-let isTyping = false; // Tracks if the text is currently being typed
+let isTyping = false;
 let typingInterval;
+let currentText = "";
 
-// Function to start typing the current dialogue
-function typeDialogue(text) {
-  charIndex = 0; // Reset character index
-  dialogueParagraph.textContent = ""; // Clear previous text
-  isTyping = true;
+//typing effekten
+function typeText(element, text, callback) {
+    let index = 0;
+    isTyping = true;
+    currentText = text;
 
-  typingInterval = setInterval(() => {
-    if (charIndex < text.length) {
-      dialogueParagraph.textContent += text.charAt(charIndex); // Add one character
-      charIndex++;
-    } else {
-      clearInterval(typingInterval); // Stop typing when done
-      isTyping = false; // Allow moving to the next dialogue
-    }
-  }, 20); // Adjust speed by changing the delay in milliseconds
+    typingInterval = setInterval(() => {
+        element.textContent += text[index];
+        index++;
+        if (index >= text.length) {
+            clearInterval(typingInterval);
+            isTyping = false;
+            if (callback) callback();
+        }
+    }, 20);
 }
 
-// Function to handle skipping or continuing dialogue
-function handleDialogue() {
-  if (isTyping) {
-    // If typing, complete the current text immediately
-    clearInterval(typingInterval);
-    dialogueParagraph.textContent = dialogues[currentDialogueIndex];
-    isTyping = false;
-  } else {
-    // If not typing, move to the next dialogue
-    currentDialogueIndex++;
+//typisk visuell novel greie
+function completeTyping() {
+    if (isTyping) {
+        clearInterval(typingInterval);
+        dialogueBox.textContent = currentText;
+        isTyping = false;
+    }
+}
+
+
+function showNextDialogue() {
     if (currentDialogueIndex < dialogues.length) {
-      typeDialogue(dialogues[currentDialogueIndex]);
+        const currentDialogue = dialogues[currentDialogueIndex];
+        nameBox.textContent = currentDialogue.name; // Update character name
+        dialogueBox.textContent = ""; // Clear previous text
+        typeText(dialogueBox, currentDialogue.text, () => {
+            console.log("Finished typing dialogue");
+        });
+        currentDialogueIndex++;
     } else {
-      nextButton.style.display = "none"; // Optional: Hide button when dialogue ends
-      console.log("Dialogue finished");
+   //må se hva jeg gjør med dette senere
+        nextButton.style.display = "none";
+        console.log("Dialogue finished");
     }
-  }
 }
 
-// Event listener for the next button
-nextButton.addEventListener("click", handleDialogue);
 
-// Event listener for the spacebar
-document.addEventListener("keydown", (event) => {
-  if (event.code === "Space") {
-    event.preventDefault(); // Prevent default scrolling behavior
-    handleDialogue();
-  }
+nextButton.addEventListener("click", () => {
+    if (isTyping) {
+        completeTyping();
+    } else {
+        showNextDialogue();
+    }
 });
 
-// Initialize with the first dialogue
-typeDialogue(dialogues[currentDialogueIndex]);
+
+document.addEventListener("keydown", (event) => {
+    if (event.code === "Space") {
+        event.preventDefault();
+        if (isTyping) {
+            completeTyping();
+        } else {
+            showNextDialogue();
+        }
+    }
+});
+

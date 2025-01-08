@@ -12,39 +12,37 @@
             <h1>Once in a Blue Moon</h1>
             <h2>— A Murder Mystery Game — </h2>
         </div>
-        <button id="play" onclick="none()">
+        <p>Press M for Music</p>
+        <button id="play" onclick="switchScreen('startscreen', 'desk')">
             Play
         </button>
     </div>
     <div id="desk">
         <div class="letter">
             <p>
-            <b>December 28, 1924</b><br>
+                <b>December 28, 1924</b><br>
                 Detective Graves<br>
                 221B Grandview Avenue<br>
                 Stafford, England<br>
                 <br>
                 Dear Detective Graves,<br>
                 <br>
-                I trust this letter finds you in good health. It is with great regret that I must inform you of a most distressing situation that demands your immediate expertise. <br>            
-                <br>
-                At approximately midnight last night, Mr. Franklin Carter, the esteemed proprietor of the Blue Moon Jazz Club, was found dead in his private office under circumstances that strongly suggest foul play. His death occurred during the club’s tenth-anniversary celebration, a well-attended event that has left both staff and patrons in considerable disarray. <br>
-                <br>
-                Initial observations indicate a sudden swelling of the throat, resulting in asphyxiation. Whilst the precise cause remains unclear, there is strong suspicion that Mr. Carter was deliberately poisoned. Four individuals of interest have been detained on the premises, each possessing potential motives for the crime. They are being held in separate rooms to ensure their statements remain untainted. <br>
-                <br>
-                The details of this case are murky, and the sensitive social standing of those involved requires the utmost discretion. The Chief Constable believes that your sharp eye and methodical nature are indispensable in bringing the truth to light. <br> 
-                <br>
-                I must therefore request that you proceed to the Blue Moon Jazz Club on East 14th Street at your earliest convenience. The officer on duty, Sergeant James Ward, will brief you further upon your arrival. <br>
-                <br>
-                Stafford holds you in the highest regard, Detective Graves, and places its trust in your ability to resolve this matter with the care and diligence for which you are so well known. <br>
-                <br>
+                I trust this letter finds you well. I regret to inform you of a most troubling matter requiring your immediate attention. <br><br>
+                Last night, at approximately midnight, Franklin Carter, proprietor of the Blue Moon Jazz Club, was found dead in his private office under suspicious circumstances. His death, occurring during the club’s tenth-anniversary celebration, appears to have been caused by asphyxiation from a suspected poisoning.
+                <br><br>
+                Four individuals with potential motives have been detained and are being held separately to ensure their statements remain uncontaminated. The case’s sensitive nature demands discretion, and the Chief believes your expertise is essential to uncover the truth.
+                <br><br>
+                Please proceed to the Blue Moon Jazz Club on East 14th Street at your earliest convenience. Sergeant James Ward will provide further details upon your arrival.
+                <br><br>
+                As always, Stafford relies on your skill and diligence.
+                <br><br>
                 Yours faithfully,<br>
                 <b>Inspector Arthur R. Greaves</b><br>
                 Stafford Police Department <br>
                 Homicide Division <br>
             </p>
         </div>
-        <button id="wardbutton" onclick="toWard()">To the Blue Moon</button>
+        <button id="wardbutton" onclick="switchScreen('desk', 'ward')">To the Blue Moon</button>
     </div>
     <div id="ward">
         <div class="yapBox">
@@ -52,12 +50,15 @@
                 <h2>Sergeant James Ward</h2>
             </div>
             <div class="yap">
-                <p>...
-                </p>
+                <p>...</p>
             </div>
         </div>
-        <button class="next">next</button>
+        <button class="next">Next</button>
     </div>
+    <audio id="backgroundMusic" loop>
+        <source src="backgroundMusic.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
     <script src="script.js"></script>
 </body>
 </html>

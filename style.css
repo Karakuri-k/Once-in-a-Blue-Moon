@@ -74,8 +74,10 @@ p {
     background-color: antiquewhite;
     border: 3px solid var(--black);
 }
+#startscreen p {
+    color: antiquewhite;
+}
 #play {
-    margin-top: 30px;
     height: 80px;
     width: 200px;
     color: var(--black);
