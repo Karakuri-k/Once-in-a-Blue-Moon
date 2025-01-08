@@ -7,14 +7,14 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="startscreen">
+    <div id="startscreen" class="flex">
         <h1>Once in a Blue Moon</h1>
         <h2>A Murder Mystery Game</h2>
-        <button id="play">
+        <button id="play" onclick="none()">
             Play
         </button>
     </div>
-    <div class="desk">
+    <div id="desk">
         <div class="letter">
             <p>
             <b>December 28, 1924</b><br>
@@ -42,9 +42,9 @@
                 Homicide Division <br>
             </p>
         </div>
-        <button class="next">next</button>
+        <button id="wardbutton" onclick="toWard()">To the Blue Moon</button>
     </div>
-    <div class="ward">
+    <div id="ward">
         <div class="yapBox">
             <div class="name">
                 <h2>Sergeant James Ward</h2>

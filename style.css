@@ -57,14 +57,14 @@ p {
     font-weight: 100;
     font-size: 22px;
 }
-.startscreen {
-    margin-top: 200px;
+#startscreen {
     display: flex;
+    margin-top: 200px;
     flex-direction: column;
     align-items: center;
     gap: 40px;
 }
-.startscreen > h2 {
+#startscreen > h2 {
     background-color: antiquewhite;
     color: var(--black);
     font-size: 40px;
@@ -97,7 +97,7 @@ p {
 	
 }
 
-.desk {
+#desk {
     display: none;
     justify-content: center;
     align-items: center;
@@ -119,12 +119,19 @@ p {
     margin:  70px 50px 0 70px;
     font-size: 16px;
 }
-.ward {
+#ward {
     display: none;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     justify-content: center;
     align-items: center;
+}
+#wardbutton {
+    grid-column: 11/12;
+   grid-row: 11/12;
+   height: 60px;
+   width: 60px;
+   margin-left: 20px;
 }
 .next {
    grid-column: 11/12;
@@ -147,13 +154,4 @@ p {
 .yapBox > h2 {
     position: absolute;
     top: 30px;
-}
-.none {
-    display: none;
-}
-.flex {
-    display: flex;
-}
-.grid {
-    display: grid;
 }
