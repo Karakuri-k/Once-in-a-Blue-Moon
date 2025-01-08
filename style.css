@@ -164,4 +164,8 @@ p {
 .yapBox .yap p {
     font-size: 20px;
     line-height: 1.5;
+    white-space: normal;
+    word-wrap: break-word;
+    overflow: hidden;
+    transition: color 0.3s ease; /* Optional: Smooth color transition */
 }

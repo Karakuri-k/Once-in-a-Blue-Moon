@@ -18,7 +18,6 @@ function toWard() {
 const dialogueParagraph = document.querySelector(".yapBox .yap p"); // Targets the <p> element
 const nextButton = document.querySelector(".next");
 
-// Dialogue array for Sergeant James Ward
 const dialogues = [
     "...",
   "Ah, Detective Graves. How lucky we are to have you here.",
@@ -29,29 +28,56 @@ const dialogues = [
 ];
 
 let currentDialogueIndex = 0;
+let charIndex = 0; // Keeps track of the current character being displayed
+let isTyping = false; // Tracks if the text is currently being typed
+let typingInterval;
 
-// Function to show the next dialogue
-function showNextDialogue() {
-  if (currentDialogueIndex < dialogues.length) {
-    dialogueParagraph.textContent = dialogues[currentDialogueIndex]; // Updates only the <p> element
-    currentDialogueIndex++;
+// Function to start typing the current dialogue
+function typeDialogue(text) {
+  charIndex = 0; // Reset character index
+  dialogueParagraph.textContent = ""; // Clear previous text
+  isTyping = true;
+
+  typingInterval = setInterval(() => {
+    if (charIndex < text.length) {
+      dialogueParagraph.textContent += text.charAt(charIndex); // Add one character
+      charIndex++;
+    } else {
+      clearInterval(typingInterval); // Stop typing when done
+      isTyping = false; // Allow moving to the next dialogue
+    }
+  }, 20); // Adjust speed by changing the delay in milliseconds
+}
+
+// Function to handle skipping or continuing dialogue
+function handleDialogue() {
+  if (isTyping) {
+    // If typing, complete the current text immediately
+    clearInterval(typingInterval);
+    dialogueParagraph.textContent = dialogues[currentDialogueIndex];
+    isTyping = false;
   } else {
-    // Optional: Hide the next button or take another action when dialogue ends
-    nextButton.style.display = "none";
-    console.log("Dialogue finished");
+    // If not typing, move to the next dialogue
+    currentDialogueIndex++;
+    if (currentDialogueIndex < dialogues.length) {
+      typeDialogue(dialogues[currentDialogueIndex]);
+    } else {
+      nextButton.style.display = "none"; // Optional: Hide button when dialogue ends
+      console.log("Dialogue finished");
+    }
   }
 }
 
 // Event listener for the next button
-nextButton.addEventListener("click", showNextDialogue);
+nextButton.addEventListener("click", handleDialogue);
 
 // Event listener for the spacebar
 document.addEventListener("keydown", (event) => {
   if (event.code === "Space") {
     event.preventDefault(); // Prevent default scrolling behavior
-    showNextDialogue();
+    handleDialogue();
   }
 });
 
 // Initialize with the first dialogue
-showNextDialogue();
+typeDialogue(dialogues[currentDialogueIndex]);
