@@ -128,13 +128,13 @@ p {
 }
 #ward {
     display: none;
-    grid-template-columns: repeat(12, 1fr); /* Fixed grid layout */
+    grid-template-columns: repeat(12, 1fr);
     grid-template-rows: repeat(12, 1fr);
     gap: 10px;
     align-items: center;
     justify-items: center;
-    width: 100vw; /* Full viewport width */
-    height: 100vh; /* Full viewport height */
+    width: 100vw;
+    height: 100vh;
 }
 .next {
    grid-column: 11/12;
@@ -153,20 +153,15 @@ p {
     flex-direction: column; 
     justify-content: flex-start;
     padding: 50px;
-    width: 700px; /* Set a consistent fixed width */
+    width: 800px;
     height: 200px;
     overflow-y: auto;
-    box-sizing: border-box; /* Ensures padding doesn't affect overall width */
 }
 .yapBox .name h2 {
     font-size: 24px;
     font-weight: bold;
-    margin-bottom: 20px;
 }
 .yapBox .yap p {
     font-size: 20px;
     line-height: 1.5;
-    white-space: normal; /* Allow text to wrap within the box */
-    word-wrap: break-word; /* Break long words to prevent overflow */
-    overflow: hidden; /* Prevent content from spilling out */
 }

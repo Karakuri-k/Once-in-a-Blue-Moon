@@ -20,12 +20,12 @@ const nextButton = document.querySelector(".next");
 
 // Dialogue array for Sergeant James Ward
 const dialogues = [
+    "...",
   "Ah, Detective Graves. How lucky we are to have you here.",
   "We’re certainly in a bit of a bind, as you can imagine.",
   "The whole department’s at a standstill, stretched thin after last week’s murder.",
   "It’s just dreadful, I tell you.",
   "But, let me get down to business and introduce you to our four main suspects, the ones you'll want to speak with shortly.",
-  "But, let me get down to business and introduce you to our four main suspects, the ones you'll want to speaktyfvvjhgfvyjthgfiyjughfijuyghf with shortly."
 ];
 
 let currentDialogueIndex = 0;
