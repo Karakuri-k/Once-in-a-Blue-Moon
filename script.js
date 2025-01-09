@@ -1,26 +1,34 @@
 //musica
-const music = document.getElementById("backgroundMusic");
+const music = document.getElementById("backgroundMusic")
 
-document.addEventListener("keydown", (event) => {
+document.addEventListener("keydown", function(event) {
     if (event.key.toLowerCase() === "m") {
-        music.play();
+        music.play()
     }
-});
+    if (event.code === "Space") {
+        event.preventDefault()
+        if (isTyping) {
+            completeTyping()
+        } else {
+            showNextDialogue()
+        }
+    }
+})
 
 //neste scene, vi får se om det funker videre og
 function switchScreen(hideId, showId) {
-    const hideElement = document.getElementById(hideId);
-    if (hideElement) hideElement.style.display = 'none';
+    const hideElement = document.getElementById(hideId)
+    if (hideElement) hideElement.style.display = 'none'
 
-    const showElement = document.getElementById(showId);
-    if (showElement) showElement.style.display = 'grid';
+    const showElement = document.getElementById(showId)
+    if (showElement) showElement.style.display = 'grid'
 }
 
 
 //dialogen, jeg må finne ut av en letter måte å gjøre det her på as
-const dialogueBox = document.querySelector(".yapBox .yap p");
-const nameBox = document.querySelector(".yapBox .name h2");
-const nextButton = document.querySelector(".next");
+const dialogueBox = document.querySelector(".yapBox .yap p")
+const nameBox = document.querySelector(".yapBox .name h2")
+const nextButton = document.querySelector(".next")
 
 //hadde også vært gøy med forskjellige fonter til hver av karakterene??
 //kanskje han fulle kan ha random bokstaver som blir caps
@@ -37,77 +45,85 @@ const dialogues = [
     { name: "Sergeant James Ward", text: "There’s talk that Frank intended to replace him with someone older and more experienced."},
     { name: "Sergeant James Ward", text: "I can’t imagine why; Charlie’s cocktails are widely praised, especially his fruit drinks. "},
     { name: "Sergeant James Ward", text: "Frank, however, had no patience for anything too sweet though he seemed to approve of the idea to shake things up for the club’s anniversary."},
-    { name: "Sergeant James Ward", text: "Ah, Detective Graves, how fortunate we are to have you here."},
-    { name: "Sergeant James Ward", text: "Ah, Detective Graves, how fortunate we are to have you here."},
-    { name: "Sergeant James Ward", text: "Ah, Detective Graves, how fortunate we are to have you here."}
-];
+    { name: "Detective Graves", text: "You seem well-acquainted with these people. Are you a regular yourself?"},
+    { name: "Sergeant James Ward", text: "Oh, quite. Many of us local officers stop by after our shifts."},
+    { name: "Sergeant James Ward", text: "Frank was a familiar figure in the area."},
+    { name: "Sergeant James Ward", text: "Next, there’s Edward Doyle, Frank’s business partner. "},
+    { name: "Sergeant James Ward", text: "He’s a shifty sort, nothing criminal exactly, but I’ve seen him slipping women out the back door more than once."},
+    { name: "Sergeant James Ward", text: "It’s no wonder Frank wanted to cut ties with him after the anniversary. "},
+    { name: "Sergeant James Ward", text: "Doyle likely thinks himself entitled to the club after all he’s invested."},
+    { name: "Sergeant James Ward", text: "Lastly, Evelyn Carter—Frank’s wife and the club’s lead singer."},
+    { name: "Sergeant James Ward", text: "She’s a darling, truly. It was Evelyn who discovered the body. "},
+    { name: "Sergeant James Ward", text: "Word has it Frank wasn’t the upstanding man he seemed; there are rumours of dalliances with Miss Belle."},
+    { name: "Sergeant James Ward", text: "Poor Evelyn was shattered, but I can’t see her committing such an act. "},
+    { name: "Sergeant James Ward", text: "She’s far too kind-hearted for that."},
+    { name: "Sergeant James Ward", text: "Who would you like to speak to first?"},
+    { name: "Sergeant James Ward", text: "hj"},
+    { name: "Sergeant James Ward", text: "hj"},
+    { name: "Sergeant James Ward", text: "hj"},
+    { name: "Sergeant James Ward", text: "hj"},
+    { name: "Sergeant James Ward", text: "hj"},
+    { name: "Sergeant James Ward", text: "hj"},
 
-let currentDialogueIndex = 0;
-let isTyping = false;
-let typingInterval;
-let currentText = "";
+    
+]
+
+let currentDialogueIndex = 0
+let isTyping = false
+let typingInterval
+let currentText = ""
 
 //typing effekten
 function typeText(element, text, callback) {
-    let index = 0;
-    isTyping = true;
-    currentText = text;
+    let index = 0
+    isTyping = true
+    currentText = text
 
-    typingInterval = setInterval(() => {
-        element.textContent += text[index];
-        index++;
+    typingInterval = setInterval(function() {
+        element.textContent += text[index]
+        index++
         if (index >= text.length) {
-            clearInterval(typingInterval);
-            isTyping = false;
-            if (callback) callback();
+            clearInterval(typingInterval)
+            isTyping = false
+            if (callback) {
+                callback()
+            }
         }
-    }, 20);
+    }, 20)
 }
+
 
 //typisk visuell novel greie
 function completeTyping() {
     if (isTyping) {
-        clearInterval(typingInterval);
-        dialogueBox.textContent = currentText;
-        isTyping = false;
+        clearInterval(typingInterval)
+        dialogueBox.textContent = currentText
+        isTyping = false
     }
 }
 
 
 function showNextDialogue() {
     if (currentDialogueIndex < dialogues.length) {
-        const currentDialogue = dialogues[currentDialogueIndex];
-        nameBox.textContent = currentDialogue.name; // Update character name
-        dialogueBox.textContent = ""; // Clear previous text
-        typeText(dialogueBox, currentDialogue.text, () => {
-            console.log("Finished typing dialogue");
-        });
-        currentDialogueIndex++;
+        const currentDialogue = dialogues[currentDialogueIndex]
+        nameBox.textContent = currentDialogue.name
+        dialogueBox.textContent = ""
+        typeText(dialogueBox, currentDialogue.text, function() {
+        })
+        currentDialogueIndex++
     } else {
    //må se hva jeg gjør med dette senere
-        nextButton.style.display = "none";
-        console.log("Dialogue finished");
+        nextButton.style.display = "none"
+        console.log("Dialogue finished")
     }
 }
 
 
-nextButton.addEventListener("click", () => {
+nextButton.addEventListener("click", function() {
     if (isTyping) {
-        completeTyping();
+        completeTyping()
     } else {
-        showNextDialogue();
-    }
-});
-
-
-document.addEventListener("keydown", (event) => {
-    if (event.code === "Space") {
-        event.preventDefault();
-        if (isTyping) {
-            completeTyping();
-        } else {
-            showNextDialogue();
-        }
+        showNextDialogue()
     }
 });
 
