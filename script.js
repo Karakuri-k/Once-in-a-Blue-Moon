@@ -102,7 +102,7 @@ function completeTyping() {
     }
 }
 
-
+//dialogen
 function showNextDialogue() {
     if (currentDialogueIndex < dialogues.length) {
         const currentDialogue = dialogues[currentDialogueIndex]
@@ -111,10 +111,25 @@ function showNextDialogue() {
         typeText(dialogueBox, currentDialogue.text, function() {
         })
         currentDialogueIndex++
+        //show Clara
+        if (currentDialogueIndex == 4) {
+            ward.style.backgroundColor = "green"
+        } //show Charlie
+        else if (currentDialogueIndex == 8) {
+            ward.style.backgroundColor = "blue"
+        } //show Edward
+        else if (currentDialogueIndex == 15) {
+            ward.style.backgroundColor = "purple"
+        } //show Evelyn
+        else if (currentDialogueIndex == 19) {
+            ward.style.backgroundColor = "pink"
+        } //show options
+        else if (currentDialogueIndex == 24) {
+            ward.style.backgroundColor = "red"
+        } 
     } else {
    //må se hva jeg gjør med dette senere
         nextButton.style.display = "none"
-        console.log("Dialogue finished")
     }
 }
 

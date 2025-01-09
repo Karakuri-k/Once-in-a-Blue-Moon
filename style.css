@@ -100,7 +100,6 @@ p {
 	}
 	
 }
-
 #desk {
     display: none;
     justify-content: center;
@@ -139,6 +138,7 @@ p {
     justify-items: center;
     width: 100vw;
     height: 100vh;
+    z-index: 0;
 }
 .next {
    grid-column: 11/12;
@@ -146,10 +146,11 @@ p {
    height: 60px;
    width: 60px;
    margin-left: 20px;
+    z-index: 3;
 }
 .yapBox {
     position: relative;
-    grid-column: 3/11;
+    grid-column: 2/12;
     grid-row: 9/12;
     display: flex;
     gap: 20px;
@@ -160,6 +161,7 @@ p {
     width: 800px;
     height: 200px;
     overflow-y: auto;
+    z-index: 2;
 }
 .yapBox .name h2 {
     font-size: 24px;
@@ -172,4 +174,13 @@ p {
     word-wrap: break-word;
     overflow: hidden;
     transition: color 0.3s ease; /* Optional: Smooth color transition */
+}
+#characterHolder {
+    width: fit-content;
+    grid-column: 9/12;
+    grid-row: 3/13;
+    z-index: 1;
+}
+#characterHolder img {
+    width: 320px;
 }
