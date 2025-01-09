@@ -62,10 +62,41 @@ const dialogues = [
     { name: "Sergeant James Ward", text: "Poor Evelyn was shattered, but I can’t see her committing such an act. "},
     { name: "Sergeant James Ward", text: "She’s far too kind-hearted for that."},
     { name: "Sergeant James Ward", text: "Who would you like to speak to first?"},
-    { name: "Sergeant James Ward", text: "..."},
-    { name: "Sergeant James Ward", text: "Oh hello, you must be the detective…Care for a sip?"}
-
+    { name: "Clara Belle", text: "..."},
+    { name: "Clara Belle", text: "Oh hello, you must be the detective…Care for a sip?", options: [
+        { text: "No, thank you. I'm working.", nextIndex: 30},
+        { text: "Yes please.", nextIndex: 27}
+    ]},
     
+    { name: "Detective Graves", text: "It tastes fruity. I thought Mr. Carter wasn’t fond of fruit drinks?"},
+    { name: "Clara Belle", text: "Oh, well... Charlie, the bartender, switched things up for the evening, you see, what with it being the anniversary."},
+    { name: "Clara Belle", text: "I rather like it, in fact. I adore tropical fruits." },
+    { name: "Clara Belle", text: "Suit yourself. Gosh, is that something tropical I taste? Charlie knows his stuff."},
+    { name: "Clara Belle", text: "..."},
+    { name: "Clara Belle", text: "Anyway, don’t you have any questions for me?", options: [
+        { text: "Where were you around midnight?", nextIndex: 60},
+        { text: "Did you see anything suspicious?", nextIndex: 65},
+        { text: "That was all", nextIndex: 70}
+    ]},
+    { name: "Detective Graves", text: "Where were you around midnight?"},
+    { name: "Clara Belle", text: "Why, I was on the dance floor, leading the lot of them, you should’ve seen me!"},
+    { name: "Clara Belle", text: "Or perhaps I was at the bar, it’s all a bit blurry. "},
+    { name: "Clara Belle", text: "I had a few of Charlie’s drinks, you know. "},
+    { name: "Clara Belle", text: "He was rather close, nearly kissed me—quite forward of him, I must say."},
+
+    { name: "Detective Graves", text: "Did you see anything suspicious?"},
+    { name: "Clara Belle", text: "I did, in fact. I saw Edward slip something into one of the glasses."},
+    { name: "Clara Belle", text: "Around 11 o’clock, I reckon."},
+    { name: "Clara Belle", text: "But it’s Edward, always up to something."},
+    { name: "Clara Belle", text: " I imagine it was just his usual game, getting the girls to follow him out of the bar."},
+    { name: "Detective Graves", text: "I’ll come back to you."},
+    { name: "Clara Belle", text: "Anytime, handsome. smiles", options: [
+        { text: "Return", nextIndex: 24}
+    ]},
+    { name: "Clara Belle", text: "..."},
+    { name: "Clara Belle", text: "..."},
+    { name: "Clara Belle", text: "..."},
+    { name: "Clara Belle", text: "..."},
 ]
 
 let currentDialogueIndex = 0
@@ -165,6 +196,9 @@ function showNextDialogue() {
                 let currentDialogueIndex = 25
             });
         } 
+        else if (currentDialogueIndex == 71) {
+            claraInt1 = true
+        }
     }
 }
 
