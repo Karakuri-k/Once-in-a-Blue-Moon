@@ -75,14 +75,18 @@ const dialogues = [
     { name: "Clara Belle", text: "..."},
     { name: "Clara Belle", text: "Anyway, don’t you have any questions for me?", options: [
         { text: "Where were you around midnight?", nextIndex: 60},
-        { text: "Did you see anything suspicious?", nextIndex: 65},
-        { text: "That was all", nextIndex: 70}
+        { text: "Did you see anything suspicious?", nextIndex: 65}
     ]},
     { name: "Detective Graves", text: "Where were you around midnight?"},
     { name: "Clara Belle", text: "Why, I was on the dance floor, leading the lot of them, you should’ve seen me!"},
     { name: "Clara Belle", text: "Or perhaps I was at the bar, it’s all a bit blurry. "},
     { name: "Clara Belle", text: "I had a few of Charlie’s drinks, you know. "},
     { name: "Clara Belle", text: "He was rather close, nearly kissed me—quite forward of him, I must say."},
+    { name: "Clara Belle", text: "Did you have any more questions?", options: [
+        { text: "Where were you around midnight?", nextIndex: 60},
+        { text: "Did you see anything suspicious?", nextIndex: 65},
+        { text: "That was all", nextIndex: 70}
+    ]},
 
     { name: "Detective Graves", text: "Did you see anything suspicious?"},
     { name: "Clara Belle", text: "I did, in fact. I saw Edward slip something into one of the glasses."},
@@ -93,10 +97,21 @@ const dialogues = [
     { name: "Clara Belle", text: "Anytime, handsome. smiles", options: [
         { text: "Return", nextIndex: 24}
     ]},
-    { name: "Clara Belle", text: "..."},
-    { name: "Clara Belle", text: "..."},
-    { name: "Clara Belle", text: "..."},
-    { name: "Clara Belle", text: "..."},
+    { name: "Charlie Finch", text: "..."},
+    { name: "Charlie Finch", text: "Ah, good, you’re here. We’ve all been waiting for the detective."},
+    { name: "Charlie Finch", text: "Care for a drink?", options: [
+        { text: "No, thank you. I'm working.", nextIndex: 75},
+        { text: "Yes please."}
+    ]},
+    { name: "Detective Graves", text: "No, thank you. I'm working."},
+    { name: "Charlie Finch", text: "Ah, you're a proper man. Good on ya."},
+
+    { name: "Charlie Finch", text: "*Chuckles* Well, yes, but I thought I’d mix things up for the anniversary."},
+    { name: "Charlie Finch", text: "Frank usually drinks anything, once he's had enough."},
+    { name: "Charlie Finch", text: "Did you have any questions for me?"},
+    { name: "Charlie Finch", text: "..."},
+    { name: "Charlie Finch", text: "..."},
+    { name: "Charlie Finch", text: "..."},
 ]
 
 let currentDialogueIndex = 0
