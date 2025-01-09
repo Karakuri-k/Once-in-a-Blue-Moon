@@ -2,6 +2,9 @@
 //musica
 const music = document.getElementById("backgroundMusic")
 
+//passepå at dialogen ikke fortsetter
+let optionWait = false 
+
 document.addEventListener("keydown", function(event) {
     if (event.key.toLowerCase() === "m") {
         music.play()
@@ -10,7 +13,7 @@ document.addEventListener("keydown", function(event) {
         event.preventDefault()
         if (isTyping) {
             completeTyping()
-        } else {
+        } else if (!optionWait) {
             showNextDialogue()
         }
     }
@@ -99,6 +102,7 @@ function completeTyping() {
     }
 }
 
+//options
 const claraProfile = document.getElementById('claraProfile')
 const charlieProfile = document.getElementById('charlieProfile')
 const edwardProfile = document.getElementById('edwardProfile')
@@ -140,11 +144,25 @@ function showNextDialogue() {
             evelynProfile.style.display = "block"
         } //show options
         else if (currentDialogueIndex == 24) {
+            optionWait = true
             nextButton.style.display = "none"
             claraProfile.addEventListener("click", function() {
+                claraProfile.style.display = "none"
+                charlieProfile.style.display = "none"
+                edwardProfile.style.display = "none"
+                evelynProfile.style.display = "none"
+                optionWait = false
                 switchCharacter('james', 'clara')
                 let currentDialogueIndex = 25
-
+            });
+            charlieProfile.addEventListener("click", function() {
+                claraProfile.style.display = "none"
+                charlieProfile.style.display = "none"
+                edwardProfile.style.display = "none"
+                evelynProfile.style.display = "none"
+                optionWait = false
+                switchCharacter('james', 'charlie')
+                let currentDialogueIndex = 25
             });
         } 
     }
