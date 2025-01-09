@@ -58,12 +58,8 @@ const dialogues = [
     { name: "Sergeant James Ward", text: "Poor Evelyn was shattered, but I can’t see her committing such an act. "},
     { name: "Sergeant James Ward", text: "She’s far too kind-hearted for that."},
     { name: "Sergeant James Ward", text: "Who would you like to speak to first?"},
-    { name: "Sergeant James Ward", text: "hj"},
-    { name: "Sergeant James Ward", text: "hj"},
-    { name: "Sergeant James Ward", text: "hj"},
-    { name: "Sergeant James Ward", text: "hj"},
-    { name: "Sergeant James Ward", text: "hj"},
-    { name: "Sergeant James Ward", text: "hj"},
+    { name: "Sergeant James Ward", text: "..."},
+    { name: "Sergeant James Ward", text: "Oh hello, you must be the detective…Care for a sip?"}
 
     
 ]
@@ -106,6 +102,20 @@ const claraProfile = document.getElementById('claraProfile')
 const charlieProfile = document.getElementById('charlieProfile')
 const edwardProfile = document.getElementById('edwardProfile')
 const evelynProfile = document.getElementById('evelynProfile')
+
+let claraInt1 = false
+let charlieInt1 = false
+let edwardInt1 = false
+let evelynInt1 = false
+
+function switchCharacter(hideId, showId) {
+    const hideElement = document.getElementById(hideId)
+    if (hideElement) hideElement.style.display = 'none'
+
+    const showElement = document.getElementById(showId)
+    if (showElement) showElement.style.display = 'block'
+}
+
 //dialogen
 function showNextDialogue() {
     if (currentDialogueIndex < dialogues.length) {
@@ -130,6 +140,11 @@ function showNextDialogue() {
         } //show options
         else if (currentDialogueIndex == 24) {
             nextButton.style.display = "none"
+            claraProfile.addEventListener("click", function() {
+                switchCharacter('james', 'clara')
+                let currentDialogueIndex = 25
+
+            });
         } 
     }
 }

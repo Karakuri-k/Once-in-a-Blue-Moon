@@ -129,7 +129,7 @@ p {
    width: 60px;
    margin-left: 20px;
 }
-#ward {
+#interview {
     display: none;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: repeat(12, 1fr);
@@ -184,7 +184,21 @@ p {
 #characterHolder img {
     width: 320px;
 }
-
+#james {
+    display: block;
+}
+#clara {
+    display: none;
+}
+#charlie {
+    display: none;
+}
+#edward {
+    display: none;
+}
+#evelyn {
+    display: none;
+}
 #claraProfile {
     display: none;
     grid-column: 3/5;
