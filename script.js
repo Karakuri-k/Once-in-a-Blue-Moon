@@ -102,6 +102,10 @@ function completeTyping() {
     }
 }
 
+const claraProfile = document.getElementById('claraProfile')
+const charlieProfile = document.getElementById('charlieProfile')
+const edwardProfile = document.getElementById('edwardProfile')
+const evelynProfile = document.getElementById('evelynProfile')
 //dialogen
 function showNextDialogue() {
     if (currentDialogueIndex < dialogues.length) {
@@ -113,23 +117,20 @@ function showNextDialogue() {
         currentDialogueIndex++
         //show Clara
         if (currentDialogueIndex == 4) {
-            ward.style.backgroundColor = "green"
+            claraProfile.style.display = "block"
         } //show Charlie
         else if (currentDialogueIndex == 8) {
-            ward.style.backgroundColor = "blue"
+            charlieProfile.style.display = "block"
         } //show Edward
         else if (currentDialogueIndex == 15) {
-            ward.style.backgroundColor = "purple"
+            edwardProfile.style.display = "block"
         } //show Evelyn
         else if (currentDialogueIndex == 19) {
-            ward.style.backgroundColor = "pink"
+            evelynProfile.style.display = "block"
         } //show options
         else if (currentDialogueIndex == 24) {
-            ward.style.backgroundColor = "red"
+            nextButton.style.display = "none"
         } 
-    } else {
-   //må se hva jeg gjør med dette senere
-        nextButton.style.display = "none"
     }
 }
 
