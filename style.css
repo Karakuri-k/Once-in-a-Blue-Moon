@@ -149,6 +149,30 @@ p {
     height: 100vh;
     z-index: 0;
 }
+#option-box {
+    display: flex;
+    grid-column: 6/8;
+    grid-row: 2/7;
+    flex-direction: column;
+    width: 240px;
+    gap: 10px;
+}
+#option-box h2 {
+    color: antiquewhite;
+    width: 100%;
+    text-align: center;
+    height: 64px;
+    font-size: 20px;
+}
+#option1 {
+    display: block;
+}
+#option2 {
+    display: block;
+}
+#option3 {
+    display: block;
+}
 .next {
    grid-column: 11/12;
    grid-row: 11/12;

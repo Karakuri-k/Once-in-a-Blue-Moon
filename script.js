@@ -259,8 +259,15 @@ const dialogues = [
     //ward after all have been interviewed 114
     { name: "Sergeant James Ward", text: "Good work. Did you find out anything?", options: [
         { text: "I think I know who the murderer is.", nextIndex: "velg side greie, lag"},
-        { text: "I have acquired some new inoformation, I’d like to question them again.", nextIndex: 97},
+        { text: "I have acquired some new information, I’d like to question them again.", nextIndex: 97},
     ]},
+    { name: "Sergeant James Ward", text: "Very, well."},
+
+    //interview2 start 116
+    { name: "Sergeant James Ward", text: "Who would you like to speak to?"},
+    { name: "Evelyn Carter", text: "..."},
+    { name: "Evelyn Carter", text: "..."},
+    { name: "Evelyn Carter", text: "..."},
     { name: "Evelyn Carter", text: "..."},
     { name: "Evelyn Carter", text: "..."},
 ]
@@ -320,6 +327,7 @@ function switchCharacter(hideId, showId) {
 
 const interview = document.getElementById('interview')
 const graves = document.getElementById('graves')
+const option1 = document.getElementById('option1')
 //dialogen
 function showNextDialogue() {
     if (currentDialogueIndex < dialogues.length) {
@@ -399,6 +407,10 @@ function showNextDialogue() {
                 graves.style.display = "block"
             });
         } 
+        else if (currentDialogueIndex == 26) {
+            option1.innerHTML = "No, thank you. I'm working."
+            option1.style.display = "block"
+        }
         else if (currentDialogueIndex == 49) {
             claraInt1 = true
         }
