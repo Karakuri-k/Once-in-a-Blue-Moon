@@ -183,11 +183,13 @@ const dialogues = [
     { name: "Edward Doyle", text: "Don’t tell the others, I just... I don’t know what to do."},
     { name: "Edward Doyle", text: "I know I shouldn’t drink, but you would too, if your best mate just died."},
     { name: "Detective Graves", text: "I understand, though it makes my job a tad more difficult."},
+
     { name: "Edward Doyle", text: "Don’t worry, I’ll answer all your questions. Can’t lie to the police, especially in this state.", options : [
         { text: "Where were you around midnight?", nextIndex: 61},
         { text: "Did you see anything suspicious?", nextIndex: 64},
     ]},
-    { name: "Edward Doyle", text: "..."},
+
+    { name: "Edward Doyle", text: "I was with some lovely ladies near the dance floor. heelo"},
     { name: "Edward Doyle", text: "..."},
 ]
 
