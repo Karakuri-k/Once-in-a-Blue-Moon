@@ -297,7 +297,7 @@ function showNextDialogue() {
                 evelynProfile.style.display = "none"
                 optionWait = false
                 switchCharacter('james', 'clara')
-                let currentDialogueIndex = 25
+                currentDialogueIndex = 25
             });
             charlieProfile.addEventListener("click", function() {
                 claraProfile.style.display = "none"
@@ -306,7 +306,7 @@ function showNextDialogue() {
                 evelynProfile.style.display = "none"
                 optionWait = false
                 switchCharacter('james', 'charlie')
-                let currentDialogueIndex = 25
+                currentDialogueIndex = 25
             });
         } 
         else if (currentDialogueIndex == 49) {
