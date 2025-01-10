@@ -201,14 +201,65 @@ const dialogues = [
     { name: "Edward Doyle", text: "Anything more?", options : [
         { text: "Where were you around midnight?", nextIndex: 76},
         { text: "Did you see anything suspicious?", nextIndex: 83},
-        { text: "That was all", nextIndex: 68}
+        { text: "That was all", nextIndex: 89}
     ]},
 
     //sus? 83
     { name: "Detective Graves", text: "Did you see anything suspicious?"},
+    { name: "Edward Doyle", text: "No, no time for that with five lovely women around."},
     { name: "Edward Doyle", text: "..."},
+    { name: "Edward Doyle", text: "Damn, should’ve paid more attention to Frank."},
     { name: "Edward Doyle", text: "..."},
+    { name: "Edward Doyle", text: "Oh, Frankie", nextIndex: 82},
 
+    //thats all 89
+    { name: "Detective Graves", text: "I'll leave you to it then. I’ll come back to you if I have more questions."},
+    { name: "Edward Doyle", text: "Good luck, Detective.", nextIndex: 50 },
+
+    //evelyn carter interview1 91
+    { name: "Evelyn Carter", text: "Oh, hello. You must be the detective."},
+    //evelyn question1 92
+    { name: "Evelyn Carter", text: "I’m sorry, I probably won’t be much help...", options: [
+        { text: "Where were you around midnight?", nextIndex: 93},
+        { text: "Did you see anything suspicious?", nextIndex: 97},
+    ]},
+    //where 93
+    { name: "Detective Graves", text: "Where were you around midnight?"},
+    { name: "Evelyn Carter", text: "I was in the powder room, touching up."},
+    { name: "Evelyn Carter", text: "Seems a bit silly now, doesn’t it?"},
+
+    //evelyn question2 96
+    { name: "Evelyn Carter", text: "Was that all?", options: [
+        { text: "Where were you around midnight?", nextIndex: 93},
+        { text: "Did you see anything suspicious?", nextIndex: 97},
+        { text: "That was all", nextIndex: 111}
+    ]},
+
+    //sus? 97
+    { name: "Detective Graves", text: "Did you see anything suspicious?"},
+    { name: "Evelyn Carter", text: "Not until I found my husband dead on the floor."},
+    { name: "Evelyn Carter", text: "Oh, but I did see a girl asleep in the corner. "},
+    { name: "Evelyn Carter", text: "That’s quite normal, isn’t it?"},
+    { name: "Evelyn Carter", text: "Edward often spikes girls’ drinks, but no one does anything about it."},
+    { name: "Evelyn Carter", text: "He’s Frank’s partner, after all."},
+    { name: "Detective Graves", text: "You were the one who discovered the body, is that right?"},
+    { name: "Evelyn Carter", text: "Oh, yes. Terrible. His throat was so swollen... like a reaction of some sort. Someone did that to him. "},
+    { name: "Evelyn Carter", text: "Good thing the bartender knows not to put pineapple in his drinks,"},
+    { name: "Evelyn Carter", text: "not that Frank likes fruit drinks anyway, it is probably because of that allergy."},
+    { name: "Evelyn Carter", text: "Although, I know of some poisons that may trigger the same effect."},
+    { name: "Evelyn Carter", text: "Its my little hobby * she smiled* Frank would always buy me books on this."},
+    { name: "Evelyn Carter", text: "Hydrochloric acid or hydrofluoric acid or even sodium hydroxide could have been used. "},
+    { name: "Evelyn Carter", text: "Too bad the autopsy isn’t done yet. ", nextIndex: 96},
+
+    //thats all 111
+    { name: "Detective Graves", text: "I’ll come back to you if I have more questions."},
+    { name: "Evelyn Carter", text: "Very well. Please, find out who did this to my husband."},
+    { name: "Detective Graves", text: "I’ll do my very best.", nextIndex: 50},
+
+
+    { name: "Evelyn Carter", text: "..."},
+    { name: "Evelyn Carter", text: "..."},
+    { name: "Evelyn Carter", text: "..."},
 ]
 
 let currentDialogueIndex = 0
@@ -315,7 +366,7 @@ function showNextDialogue() {
                 interview.style.backgroundImage = "url(bilder/chaBack.JPG)"
                 interview.style.backgroundRepeat = "no-repeat"
                 interview.style.backgroundSize = "cover"
-                currentDialogueIndex = 25
+                currentDialogueIndex = 50
                 graves.style.display = "block"
             });
             edwardProfile.addEventListener("click", function() {
@@ -328,7 +379,7 @@ function showNextDialogue() {
                 interview.style.backgroundImage = "url(bilder/edBack.JPG)"
                 interview.style.backgroundRepeat = "no-repeat"
                 interview.style.backgroundSize = "cover"
-                currentDialogueIndex = 25
+                currentDialogueIndex = 69
                 graves.style.display = "block"
             });
             evelynProfile.addEventListener("click", function() {
@@ -341,7 +392,7 @@ function showNextDialogue() {
                 interview.style.backgroundImage = "url(bilder/eveBack.JPG)"
                 interview.style.backgroundRepeat = "no-repeat"
                 interview.style.backgroundSize = "cover"
-                currentDialogueIndex = 25
+                currentDialogueIndex = 91
                 graves.style.display = "block"
             });
         } 
@@ -353,6 +404,7 @@ function showNextDialogue() {
             edwardProfile.style.display = "block"
             charlieProfile.style.display = "block"
             claraProfile.style.display = "block"
+            
         }
     }
 }
