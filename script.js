@@ -256,8 +256,11 @@ const dialogues = [
     { name: "Evelyn Carter", text: "Very well. Please, find out who did this to my husband."},
     { name: "Detective Graves", text: "I’ll do my very best.", nextIndex: 50},
 
-
-    { name: "Evelyn Carter", text: "..."},
+    //ward after all have been interviewed 114
+    { name: "Sergeant James Ward", text: "Good work. Did you find out anything?", options: [
+        { text: "I think I know who the murderer is.", nextIndex: "velg side greie, lag"},
+        { text: "I have acquired some new inoformation, I’d like to question them again.", nextIndex: 97},
+    ]},
     { name: "Evelyn Carter", text: "..."},
     { name: "Evelyn Carter", text: "..."},
 ]
@@ -379,7 +382,7 @@ function showNextDialogue() {
                 interview.style.backgroundImage = "url(bilder/edBack.JPG)"
                 interview.style.backgroundRepeat = "no-repeat"
                 interview.style.backgroundSize = "cover"
-                currentDialogueIndex = 69
+                currentDialogueIndex = 70
                 graves.style.display = "block"
             });
             evelynProfile.addEventListener("click", function() {
@@ -400,11 +403,83 @@ function showNextDialogue() {
             claraInt1 = true
         }
         else if (currentDialogueIndex == 50) {
-            evelynProfile.style.display = "block"
-            edwardProfile.style.display = "block"
-            charlieProfile.style.display = "block"
-            claraProfile.style.display = "block"
-            
+            if (claraInt1 && charlieInt1 && edwardInt1 && evelynInt1 == true) {
+                currentDialogueIndex = 114
+            } else {
+                evelynProfile.style.display = "block"
+                edwardProfile.style.display = "block"
+                charlieProfile.style.display = "block"
+                claraProfile.style.display = "block"
+                james.style.display = "block"
+                clara.style.display = "none"
+                edward.style.display = "none"
+                evelyn.style.display = "none"
+                charlie.style.display = "none"
+                interview.style.backgroundImage = "url(bilder/wardBack.JPG)"
+                optionWait = true
+                claraProfile.addEventListener("click", function() {
+                    claraProfile.style.display = "none"
+                    charlieProfile.style.display = "none"
+                    edwardProfile.style.display = "none"
+                    evelynProfile.style.display = "none"
+                    optionWait = false
+                    switchCharacter('james', 'clara')
+                    interview.style.backgroundImage = "url(bilder/claBack.JPG)"
+                    interview.style.backgroundRepeat = "no-repeat"
+                    interview.style.backgroundSize = "cover"
+                    currentDialogueIndex = 24
+                    graves.style.display = "block"
+                });
+                charlieProfile.addEventListener("click", function() {
+                    claraProfile.style.display = "none"
+                    charlieProfile.style.display = "none"
+                    edwardProfile.style.display = "none"
+                    evelynProfile.style.display = "none"
+                    optionWait = false
+                    switchCharacter('james', 'charlie')
+                    interview.style.backgroundImage = "url(bilder/chaBack.JPG)"
+                    interview.style.backgroundRepeat = "no-repeat"
+                    interview.style.backgroundSize = "cover"
+                    currentDialogueIndex = 50
+                    graves.style.display = "block"
+                });
+                edwardProfile.addEventListener("click", function() {
+                    claraProfile.style.display = "none"
+                    charlieProfile.style.display = "none"
+                    edwardProfile.style.display = "none"
+                    evelynProfile.style.display = "none"
+                    optionWait = false
+                    switchCharacter('james', 'edward')
+                    interview.style.backgroundImage = "url(bilder/edBack.JPG)"
+                    interview.style.backgroundRepeat = "no-repeat"
+                    interview.style.backgroundSize = "cover"
+                    currentDialogueIndex = 70
+                    graves.style.display = "block"
+                });
+                evelynProfile.addEventListener("click", function() {
+                    claraProfile.style.display = "none"
+                    charlieProfile.style.display = "none"
+                    edwardProfile.style.display = "none"
+                    evelynProfile.style.display = "none"
+                    optionWait = false
+                    switchCharacter('james', 'evelyn')
+                    interview.style.backgroundImage = "url(bilder/eveBack.JPG)"
+                    interview.style.backgroundRepeat = "no-repeat"
+                    interview.style.backgroundSize = "cover"
+                    currentDialogueIndex = 91
+                    graves.style.display = "block"
+                });
+
+            }
+        }
+        else if (currentDialogueIndex == 69) {
+            charlieInt1 = true
+        }
+        else if (currentDialogueIndex == 90) {
+            edwardInt1 = true
+        }
+        else if (currentDialogueIndex == 113) {
+            evelynInt1 = true
         }
     }
 }
