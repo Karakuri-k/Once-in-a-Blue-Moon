@@ -111,7 +111,7 @@ const dialogues = [
     { name: "Clara Belle", text: "Did you have any more questions?", options: [
         { text: "Where were you around midnight?", nextIndex: 37},
         { text: "Did you see anything suspicious?", nextIndex: 43},
-        { text: "That was all", nextIndex: 70}
+        { text: "That was all", nextIndex: 48}
     ]},
 
     //sus? 43
@@ -124,7 +124,7 @@ const dialogues = [
     //thats all 48
     { name: "Detective Graves", text: "I’ll come back to you."},
     { name: "Clara Belle", text: "Anytime, handsome. smiles", options: [
-        { text: "Return", nextIndex: 24}
+        { text: "Return", nextIndex: 50}
     ]},
 
     //nestemann 50
@@ -150,15 +150,45 @@ const dialogues = [
 
     //charlie question2 60
     { name: "Charlie Finch", text: "Did you have any questions for me?", options : [
-        { text: "Where were you around midnight?", nextIndex: 37},
-        { text: "Did you see anything suspicious?", nextIndex: 43}
+        { text: "Where were you around midnight?", nextIndex: 61},
+        { text: "Did you see anything suspicious?", nextIndex: 64}
     ]},
-    
+    //where? 61
     { name: "Detective Graves", text: "Where were you around midnight?"},
-    { name: "Detective Graves", text: "Did you see anything suspicious?"},
     { name: "Charlie Finch", text: "I was at the bar all evening, making the drink of the night. Ask anyone, they’ll tell you."},
-    { name: "Charlie Finch", text: "..."},
-    { name: "Charlie Finch", text: "..."},
+
+    //charlie questions3 63
+    { name: "Charlie Finch", text: "Did you have any questions for me?", options : [
+        { text: "Where were you around midnight?", nextIndex: 61},
+        { text: "Did you see anything suspicious?", nextIndex: 64},
+        { text: "That was all", nextIndex: 68}
+    ]},
+
+    //sus? 64
+    { name: "Detective Graves", text: "Did you see anything suspicious?"},
+    { name: "Charlie Finch", text: "Only Edward, up to his usual tricks. Nothing to make me think he’d go as far as murder."},
+    { name: "Charlie Finch", text: "Now Clara, she’s a different story. "},
+    { name: "Charlie Finch", text: "She didn’t show it, but she was humiliated when Frank rejected her. That might’ve stung."},
+    { name: "Charlie Finch", text: "No one expects her to do anything so she's got both motive and opportunity.", nextIndex: 63},
+
+    //thats all 68
+    { name: "Detective Graves", text: "I’ll come back to you if I have more questions."},
+    { name: "Charlie Finch", text: "Happy to help. Good luck with the investigation, Detective.", options : [
+        { text: "Return", nextIndex: 50}
+    ]},
+
+    //edward doyle interview1 70
+    { name: "Edward Doyle", text: "..."},
+    { name: "Edward Doyle", text: "Oh, it’s you. Sorry about the mess..."},
+    { name: "Edward Doyle", text: "Don’t tell the others, I just... I don’t know what to do."},
+    { name: "Edward Doyle", text: "I know I shouldn’t drink, but you would too, if your best mate just died."},
+    { name: "Detective Graves", text: "I understand, though it makes my job a tad more difficult."},
+    { name: "Edward Doyle", text: "Don’t worry, I’ll answer all your questions. Can’t lie to the police, especially in this state.", options : [
+        { text: "Where were you around midnight?", nextIndex: 61},
+        { text: "Did you see anything suspicious?", nextIndex: 64},
+    ]},
+    { name: "Edward Doyle", text: "..."},
+    { name: "Edward Doyle", text: "..."},
 ]
 
 let currentDialogueIndex = 0
