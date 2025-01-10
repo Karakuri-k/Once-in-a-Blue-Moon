@@ -264,6 +264,8 @@ function switchCharacter(hideId, showId) {
     if (showElement) showElement.style.display = 'block'
 }
 
+const interview = document.getElementById('interview')
+const graves = document.getElementById('graves')
 //dialogen
 function showNextDialogue() {
     if (currentDialogueIndex < dialogues.length) {
@@ -297,7 +299,11 @@ function showNextDialogue() {
                 evelynProfile.style.display = "none"
                 optionWait = false
                 switchCharacter('james', 'clara')
-                currentDialogueIndex = 25
+                interview.style.backgroundImage = "url(bilder/claBack.JPG)"
+                interview.style.backgroundRepeat = "no-repeat"
+                interview.style.backgroundSize = "cover"
+                currentDialogueIndex = 24
+                graves.style.display = "block"
             });
             charlieProfile.addEventListener("click", function() {
                 claraProfile.style.display = "none"
@@ -306,7 +312,37 @@ function showNextDialogue() {
                 evelynProfile.style.display = "none"
                 optionWait = false
                 switchCharacter('james', 'charlie')
+                interview.style.backgroundImage = "url(bilder/chaBack.JPG)"
+                interview.style.backgroundRepeat = "no-repeat"
+                interview.style.backgroundSize = "cover"
                 currentDialogueIndex = 25
+                graves.style.display = "block"
+            });
+            edwardProfile.addEventListener("click", function() {
+                claraProfile.style.display = "none"
+                charlieProfile.style.display = "none"
+                edwardProfile.style.display = "none"
+                evelynProfile.style.display = "none"
+                optionWait = false
+                switchCharacter('james', 'edward')
+                interview.style.backgroundImage = "url(bilder/edBack.JPG)"
+                interview.style.backgroundRepeat = "no-repeat"
+                interview.style.backgroundSize = "cover"
+                currentDialogueIndex = 25
+                graves.style.display = "block"
+            });
+            evelynProfile.addEventListener("click", function() {
+                claraProfile.style.display = "none"
+                charlieProfile.style.display = "none"
+                edwardProfile.style.display = "none"
+                evelynProfile.style.display = "none"
+                optionWait = false
+                switchCharacter('james', 'evelyn')
+                interview.style.backgroundImage = "url(bilder/eveBack.JPG)"
+                interview.style.backgroundRepeat = "no-repeat"
+                interview.style.backgroundSize = "cover"
+                currentDialogueIndex = 25
+                graves.style.display = "block"
             });
         } 
         else if (currentDialogueIndex == 49) {

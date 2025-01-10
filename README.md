@@ -6,3 +6,4 @@ The game is set up as a visual novel. You may interview all the witnesses two ti
 
 musikk: https://www.youtube.com/watch?v=qYaKzpMdBaM&list=WL&index=1&t=2031s
 bilder er laget med Comfy UI med hjelp av pappa fordi skjermkortet hans er det eneste som er bra nok for å kjøre det i huset. jeg hadde egentlig begynt å tegne karakterene, men endte opp med å ikke ha tid. la den ved som en placeholder.
+Man kan forresten trykke spacebar i stedet for å trykke på next-knappen

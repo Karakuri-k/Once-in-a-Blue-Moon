@@ -177,12 +177,20 @@ p {
     transition: color 0.3s ease; /* Optional: Smooth color transition */
 }
 #characterHolder {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12, 1fr);
     grid-column: 1/13;
     grid-row: 1/13;
-    width: fit-content;
+    width: 100vw;
+    height: 100vh;
     z-index: 1;
 }
-
+#characterHolder img {
+    height: 100vh;
+    grid-column: 1/13;
+    grid-row: 1/13;
+}
 #james {
     display: block;
 }
@@ -196,6 +204,9 @@ p {
     display: none;
 }
 #evelyn {
+    display: none;
+}
+#graves {
     display: none;
 }
 #claraProfile {
