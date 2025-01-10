@@ -36,7 +36,7 @@ body{
     display: flex;
     justify-content: center;
     background-color:rgb(120, 70, 38);
-    background-image: url(bilder/interviewCharlie.webp);
+    background-image: url(bilder/wardBack.JPG);
     background-repeat: no-repeat;
     background-size: cover;
 }
