@@ -158,7 +158,7 @@ const dialogues = [
     { name: "Charlie Finch", text: "I was at the bar all evening, making the drink of the night. Ask anyone, they’ll tell you."},
 
     //charlie questions3 63
-    { name: "Charlie Finch", text: "Did you have any questions for me?", options : [
+    { name: "Charlie Finch", text: "Was there anything else?", options : [
         { text: "Where were you around midnight?", nextIndex: 61},
         { text: "Did you see anything suspicious?", nextIndex: 64},
         { text: "That was all", nextIndex: 68}
@@ -184,13 +184,31 @@ const dialogues = [
     { name: "Edward Doyle", text: "I know I shouldn’t drink, but you would too, if your best mate just died."},
     { name: "Detective Graves", text: "I understand, though it makes my job a tad more difficult."},
 
+    //edward question1 75
     { name: "Edward Doyle", text: "Don’t worry, I’ll answer all your questions. Can’t lie to the police, especially in this state.", options : [
-        { text: "Where were you around midnight?", nextIndex: 61},
-        { text: "Did you see anything suspicious?", nextIndex: 64},
+        { text: "Where were you around midnight?", nextIndex: 76},
+        { text: "Did you see anything suspicious?", nextIndex: 83}
+    ]},
+    //where? 76
+    { name: "Detective Graves", text: "Where were you around midnight?"},
+    { name: "Edward Doyle", text: "I was with some lovely ladies near the dance floor."},
+    { name: "Edward Doyle", text: "Bought them drinks—thought it might be my last time with the staff discount, since Frank was planning on kicking me out. "},
+    { name: "Edward Doyle", text: "It’s not what people think, though"},
+    { name: "Edward Doyle", text: "He wanted me to open a sister club, but for the publicity."},
+    { name: "Edward Doyle", text: "Drama’s good for business, you know?"},
+
+    //edward question2 82
+    { name: "Edward Doyle", text: "Anything more?", options : [
+        { text: "Where were you around midnight?", nextIndex: 76},
+        { text: "Did you see anything suspicious?", nextIndex: 83},
+        { text: "That was all", nextIndex: 68}
     ]},
 
-    { name: "Edward Doyle", text: "I was with some lovely ladies near the dance floor. heelo"},
+    //sus? 83
+    { name: "Detective Graves", text: "Did you see anything suspicious?"},
     { name: "Edward Doyle", text: "..."},
+    { name: "Edward Doyle", text: "..."},
+
 ]
 
 let currentDialogueIndex = 0
