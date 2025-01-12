@@ -256,14 +256,14 @@ const dialogues = [
     { name: "Evelyn Carter", text: "Very well. Please, find out who did this to my husband."},
     { name: "Detective Graves", text: "I’ll do my very best.", nextIndex: 50},
 
-    //ward after all have been interviewed 114
+    //ward after all have been interviewed 115
     { name: "Sergeant James Ward", text: "Good work. Did you find out anything?", options: [
         { text: "I think I know who the murderer is.", nextIndex: "velg side greie, lag"},
-        { text: "I have acquired some new information, I’d like to question them again.", nextIndex: 97},
+        { text: "I have acquired some new information, I’d like to question them again.", nextIndex: 116},
     ]},
-    { name: "Sergeant James Ward", text: "Very, well."},
-
+    
     //interview2 start 116
+    { name: "Sergeant James Ward", text: "Very, well."},
     { name: "Sergeant James Ward", text: "Who would you like to speak to?"},
     { name: "Evelyn Carter", text: "..."},
     { name: "Evelyn Carter", text: "..."},
@@ -491,6 +491,11 @@ function showNextDialogue() {
         else if (currentDialogueIndex == 49) {
             claraInt1 = true
             console.log("true")
+            if (claraInt1 && charlieInt1 && edwardInt1 && evelynInt1 == true) {
+                currentDialogueIndex = 114
+            } else {
+                currentDialogueIndex = 49
+            }
         }
         else if (currentDialogueIndex == 50) { 
                 evelynProfile.style.display = "block"
@@ -643,7 +648,11 @@ function showNextDialogue() {
         }
         else if (currentDialogueIndex == 70) {
             charlieInt1 = true
-            currentDialogueIndex = 49
+            if (claraInt1 && charlieInt1 && edwardInt1 && evelynInt1 == true) {
+                currentDialogueIndex = 114
+            } else {
+                currentDialogueIndex = 49
+            }
         }
         else if (currentDialogueIndex == 76) {
             optionWait = true
@@ -706,7 +715,11 @@ function showNextDialogue() {
         }
         else if (currentDialogueIndex == 91) {
             edwardInt1 = true
-            currentDialogueIndex = 49
+            if (claraInt1 && charlieInt1 && edwardInt1 && evelynInt1 == true) {
+                currentDialogueIndex = 114
+            } else {
+                currentDialogueIndex = 49
+            }
         }
         else if (currentDialogueIndex == 93) {
             optionWait = true
@@ -769,13 +782,40 @@ function showNextDialogue() {
         }
         else if (currentDialogueIndex == 114) {
             evelynInt1 = true
-            currentDialogueIndex = 49
+            if (claraInt1 && charlieInt1 && edwardInt1 && evelynInt1 == true) {
+                currentDialogueIndex = 114
+            } else {
+                currentDialogueIndex = 49
+            }
         }
-        else if (claraInt1 && charlieInt1 && edwardInt1 && evelynInt1 == true) {
-            currentDialogueIndex = 114
-            switchCharacter(any, james)
+        else if (currentDialogueIndex == 115) {
+            james.style.display = "block"
+            clara.style.display = "none"
+            edward.style.display = "none"
+            evelyn.style.display = "none"
+            charlie.style.display = "none"
             interview.style.backgroundImage = "url(bilder/wardBack.JPG)"
+            optionWait = true
+            option1.innerHTML = "I think I know who the murderer is."
+            option1.style.display = "block"
+            option2.innerHTML = "I have acquired some new information, I’d like to question them again."
+            option2.style.display = "block"
+            option1.addEventListener("click", function() {
+                console.log("option1 clicked")
+                currentDialogueIndex = 36
+                optionWait = false
+                option1.style.display = "none"
+                option2.style.display = "none"
+            })
+            option2.addEventListener("click", function() {
+                console.log("option2 clicked")
+                currentDialogueIndex = 115
+                optionWait = false
+                option1.style.display = "none"
+                option2.style.display = "none"
+            })
         }
+        
     }
 }
 
