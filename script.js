@@ -212,7 +212,7 @@ const dialogues = [
     { name: "Edward Doyle", text: "..."},
     { name: "Edward Doyle", text: "Oh, Frankie", nextIndex: 82},
 
-    //thats all 89
+    //thats all 90
     { name: "Detective Graves", text: "I'll leave you to it then. I’ll come back to you if I have more questions."},
     { name: "Edward Doyle", text: "Good luck, Detective.", nextIndex: 50 },
 
@@ -492,10 +492,7 @@ function showNextDialogue() {
             claraInt1 = true
             console.log("true")
         }
-        else if (currentDialogueIndex == 50) {
-            if (claraInt1 && charlieInt1 && edwardInt1 && evelynInt1 == true) {
-                currentDialogueIndex = 114
-            } else {
+        else if (currentDialogueIndex == 50) { 
                 evelynProfile.style.display = "block"
                 edwardProfile.style.display = "block"
                 charlieProfile.style.display = "block"
@@ -560,7 +557,6 @@ function showNextDialogue() {
                     graves.style.display = "block"
                 });
 
-            }
         }
         else if (currentDialogueIndex == 53) {
             optionWait = true
@@ -649,11 +645,136 @@ function showNextDialogue() {
             charlieInt1 = true
             currentDialogueIndex = 49
         }
-        else if (currentDialogueIndex == 90) {
-            edwardInt1 = true
+        else if (currentDialogueIndex == 76) {
+            optionWait = true
+            option1.innerHTML = "Where were you around midnight?"
+            option1.style.display = "block"
+            option2.innerHTML = "Did you see anything suspicious?"
+            option2.style.display = "block"
+            option1.addEventListener("click", function() {
+                console.log("option1 clicked")
+                currentDialogueIndex = 76
+                optionWait = false
+                option1.style.display = "none"
+                option2.style.display = "none"
+                option3.style.display = "none"
+            })
+            option2.addEventListener("click", function() {
+                console.log("option2 clicked")
+                currentDialogueIndex = 83
+                optionWait = false
+                option1.style.display = "none"
+                option2.style.display = "none"
+                option3.style.display = "none"
+            })
         }
-        else if (currentDialogueIndex == 113) {
+        else if (currentDialogueIndex == 83) {
+            optionWait = true
+            option1.innerHTML = "Where were you around midnight?"
+            option1.style.display = "block"
+            option2.innerHTML = "Did you see anything suspicious?"
+            option2.style.display = "block"
+            option3.innerHTML = "That was all"
+            option3.style.display = "block"
+            option1.addEventListener("click", function() {
+                console.log("option1 clicked")
+                currentDialogueIndex = 76
+                optionWait = false
+                option1.style.display = "none"
+                option2.style.display = "none"
+                option3.style.display = "none"
+            })
+            option2.addEventListener("click", function() {
+                console.log("option2 clicked")
+                currentDialogueIndex = 83
+                optionWait = false
+                option1.style.display = "none"
+                option2.style.display = "none"
+                option3.style.display = "none"
+            })
+            option3.addEventListener("click", function() {
+                console.log("option2 clicked")
+                currentDialogueIndex = 89
+                optionWait = false
+                option1.style.display = "none"
+                option2.style.display = "none"
+                option3.style.display = "none"
+            })
+        }
+        else if (currentDialogueIndex == 89) {
+            currentDialogueIndex = 82
+        }
+        else if (currentDialogueIndex == 91) {
+            edwardInt1 = true
+            currentDialogueIndex = 49
+        }
+        else if (currentDialogueIndex == 93) {
+            optionWait = true
+            option1.innerHTML = "Where were you around midnight?"
+            option1.style.display = "block"
+            option2.innerHTML = "Did you see anything suspicious?"
+            option2.style.display = "block"
+            option1.addEventListener("click", function() {
+                console.log("option1 clicked")
+                currentDialogueIndex = 93
+                optionWait = false
+                option1.style.display = "none"
+                option2.style.display = "none"
+                option3.style.display = "none"
+            })
+            option2.addEventListener("click", function() {
+                console.log("option2 clicked")
+                currentDialogueIndex = 97
+                optionWait = false
+                option1.style.display = "none"
+                option2.style.display = "none"
+                option3.style.display = "none"
+            })
+        }
+        else if (currentDialogueIndex == 97) {
+            optionWait = true
+            option1.innerHTML = "Where were you around midnight?"
+            option1.style.display = "block"
+            option2.innerHTML = "Did you see anything suspicious?"
+            option2.style.display = "block"
+            option3.innerHTML = "That was all"
+            option3.style.display = "block"
+            option1.addEventListener("click", function() {
+                console.log("option1 clicked")
+                currentDialogueIndex = 93
+                optionWait = false
+                option1.style.display = "none"
+                option2.style.display = "none"
+                option3.style.display = "none"
+            })
+            option2.addEventListener("click", function() {
+                console.log("option2 clicked")
+                currentDialogueIndex = 97
+                optionWait = false
+                option1.style.display = "none"
+                option2.style.display = "none"
+                option3.style.display = "none"
+            })
+            option3.addEventListener("click", function() {
+                console.log("option2 clicked")
+                currentDialogueIndex = 111
+                optionWait = false
+                option1.style.display = "none"
+                option2.style.display = "none"
+                option3.style.display = "none"
+            })
+        }
+        else if (currentDialogueIndex == 111) {
+            currentDialogueIndex = 96
+        }
+        else if (currentDialogueIndex == 114) {
             evelynInt1 = true
+            currentDialogueIndex = 49
+        }
+        else if (claraInt1 && charlieInt1 && edwardInt1 && evelynInt1 == true) {
+            currentDialogueIndex = 114
+            switchCharacter(any, james)
+            interview.style.backgroundImage = "url(bilder/wardBack.JPG)"
         }
     }
 }
