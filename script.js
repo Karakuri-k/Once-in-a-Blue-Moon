@@ -32,7 +32,6 @@ function switchScreen(hideId, showId) {
 //dialogen, jeg må finne ut av en letter måte å gjøre det her på as
 const dialogueBox = document.querySelector(".yapBox .yap p")
 const nameBox = document.querySelector(".yapBox .name h2")
-const nextButton = document.querySelector(".next")
 
 //hadde også vært gøy med forskjellige fonter til hver av karakterene??
 //kanskje han fulle kan ha random bokstaver som blir caps
@@ -299,11 +298,9 @@ function typeText(element, text, callback) {
 
 //typisk visuell novel greie
 function completeTyping() {
-    if (isTyping) {
-        clearInterval(typingInterval)
-        dialogueBox.textContent = currentText
-        isTyping = false
-    }
+    clearInterval(typingInterval)
+    dialogueBox.textContent = currentText
+    isTyping = false
 }
 
 //options
@@ -353,7 +350,6 @@ function showNextDialogue() {
         else if (currentDialogueIndex == 24) {
 
             optionWait = true
-            nextButton.style.display = "none"
             claraProfile.addEventListener("click", function() {
                 claraProfile.style.display = "none"
                 charlieProfile.style.display = "none"
@@ -820,10 +816,3 @@ function showNextDialogue() {
 }
 
 
-nextButton.addEventListener("click", function() {
-    if (isTyping) {
-        completeTyping()
-    } else {
-        showNextDialogue()
-    }
-});
